@@ -32,7 +32,7 @@ router.post('/addcustomer' , async function(req , res) {
             res.redirect('/addcustomer');
         
     }catch(err){
-        console.log(err);
+        
         res.redirect('/addcustomer');
 
     }
@@ -41,7 +41,6 @@ router.post('/addcustomer' , async function(req , res) {
 router.get("/details/:id" , async function(req , res) {
     try{
         const customer = await Customer.findOne({_id: req.params.id}).populate("owner");
-        console.log(customer);
         res.render("customerdetails.hbs" , { customer: customer , username : req.session.username})   
     }catch(e){
         throw(e)
@@ -61,7 +60,7 @@ router.post("/update/:id" , async function(req , res) {
         error = "Update Stage not valid";
         throw error;
     }
-    console.log(updateData);
+    
 
     try {
         let updatedCustomer;

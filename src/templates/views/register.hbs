@@ -1,5 +1,35 @@
 {{>header}}
-{{>navbar}}
+{{!-- navbar --}}
+<nav class="navbar is-fixed-top box-shadow-y">
+    <div class="navbar-brand">
+        <a href="#" class="navbar-burger toggler">
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+        <img src="/public/images/brandcropped.png" width="100" height="80">
+        <a href="#" class="navbar-item has-text-weight-bold has-text-black large">RG Realty</a>
+        <a href="#" class="navbar-burger navbar-toggler">
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+    </div>
+    <div class="navbar-menu has-background-white">
+        <div class="navbar-start">
+            <a href="/" class="navbar-item">
+                <i class="fas fa-home icon"></i>Home
+            </a>
+            <a href="/about" class="navbar-item">
+                About
+            </a>
+        </div>
+      
+    </div>
+</nav>
+
+
+{{!-- navbar end--}}
 
 <section class="hero has-background-grey-darker is-fullheight">
   <div class="hero-body">
@@ -35,7 +65,7 @@
               </div>
             </div>
             <div class="field">
-              <a href="/">Already registered? Login</a>
+              <a href="/login">Already registered? Login</a>
             </div>
             <div class="field has-text-danger">
                 <p >

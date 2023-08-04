@@ -1,3 +1,4 @@
+{{>header}}
 {{!-- navbar --}}
 <nav class="navbar is-fixed-top box-shadow-y">
     <div class="navbar-brand">
@@ -16,31 +17,39 @@
     </div>
     <div class="navbar-menu has-background-white">
         <div class="navbar-start">
-            <a href="/dashboard" class="navbar-item">
+            <a href="/" class="navbar-item">
                 <i class="fas fa-home icon"></i>Home
-            </a>
-            <a href="/addcustomer" class="navbar-item is-active">
-                Add Customers
             </a>
             <a href="/about" class="navbar-item">
                 About
             </a>
         </div>
-        <div class="navbar-end">
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a href="#" class="navbar-link">{{username}}</a>
-                <div class="navbar-dropdown">
-                    <a href="/profile" class="navbar-item">
-                    Profile
-                    </a>
-                    <a href="/settings" class="navbar-item">Settings</a>
-                    <hr class="navbar-divider" />
-                    <a href="/logout" class="navbar-item">Logout</a>
-                </div>
-            </div>
-        </div>
+      
     </div>
 </nav>
 
 
-{{!-- navbar end--}}
+<!-- Hero section -->
+  
+  
+  <section class="hero has-background-black-bis is-fullheight">
+    <div class="hero-body">
+      <div class="container has-text-centered ">
+        <h1 class="title has-text-white">
+          Welcome to Realty Firm
+        </h1>
+        <h2 class="subtitle has-text-white">
+          Your Trusted Partner in Real Estate
+        </h2>
+        <div class="buttons is-centered">
+          <a class="button is-dark is-large" href="/login">Login</a>
+          <a class="button is-light is-large" href="/register">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+</body>
+</html>
