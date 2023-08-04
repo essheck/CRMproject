@@ -1,0 +1,57 @@
+{{>header}}
+{{>navbar}}
+
+<section class="hero has-background-grey-darker is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <form action="/users/login" class="box" method="POST">
+            <div class="field">
+              <label for="" class="label">Email</label>
+              <div class="control has-icons-left">
+                <input type="text" placeholder="Enter your Email" class="input" required name="email">
+                <span class="icon is-small is-left">
+                  <i class="fa fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="" class="label">Password</label>
+              <div class="control has-icons-left">
+                <input type="password" placeholder="*******" class="input" required name="password">
+                <span class="icon is-small is-left">
+                  <i class="fa fa-lock"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="" class="checkbox">
+                <input type="checkbox">
+               Remember me
+              </label>
+            </div>
+            <div class="field has-text-danger">
+              <a href="/register">New User? Register</a>
+            </div>
+            <div class="field">
+                <p>
+                    
+                    {{#if error}}
+                    <h1 >{{error.msg}}</h1>
+                    {{/if}}
+                </p>
+            </div>
+            <div class="field">
+              <button class="button is-success">
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+</body>

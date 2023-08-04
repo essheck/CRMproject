@@ -1,0 +1,88 @@
+{{>header}}
+
+{{!-- navbar --}}
+{{>navbar}}
+{{!-- navbar end--}}
+<div class="columns is-variable is-0"> 
+    
+    {{!-- sidebar --}}
+{{>sidemenu}}
+
+    {{!-- Main Section --}}
+    <div class="column is-10-desktop is-offset-2-desktop is-9-tablet is-offset-3-tablet is-12-mobile dashboard">
+            <div class="p-3">
+                <div class="columns is-variable is-desktop">
+                    <div class="column is-four-fifths">
+                        <h1 class="title">Customer Id : {{customer._id}}</h1>
+                    </div>
+                    <div class="column">
+                        <form action="/edit/{{customer._id}}" method="GET">
+                        <button class="is-warning"><i class="fas fa-edit icon"></i>Edit Details</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="columns is-variable is-desktop">
+                    <div class="column">
+                        <div class="card">
+                            <div class="card-content">
+                                <p class="is-size-5"> Customer Name : {{customer.name}}</p>
+                                <p class="is-size-5"> Customer Email : {{customer.email}}</p>
+                                <p class="is-size-5"> Customer Phone : {{customer.phone}}</p>
+                                <p class="is-size-5"> Lead Owner : {{customer.owner.name}}</p>
+                                <p class="is-size-5"> Customer Address : {{customer.address}}</p>
+                                <p class="is-size-5"> Customer GST no : {{customer.gst}}</p>
+                                <p class="is-size-5"> Customer Stage : {{customer.stage}}</p>
+                                <p class="is-size-5"> Customer Estimated revenue : {{customer.estimatedsales}}</p>
+                                <p class="is-size-5"> Customer Total Sales : {{customer.sales}}</p>
+                            </div>
+                            <footer class="card-footer has-background-warning">
+                                <a href="#" id="update-lead" class="card-footer-item">Update Lead Stage</a>
+                            </footer>
+                        </div>
+                        <div class="card hidden" id="updateform" >
+                            <div class="card-content">
+                                <form action="/update/{{customer._id}}" method="post" class="box">
+                                    <div class="field">
+                                        <label for="" class="label">New Lead Stage</label>
+                                        <div class="select is-rounded is-link">
+                                            <select name="stage">
+                                                <option value="2">Lead Stage 2 - Prospect</option>
+                                                <option value="3">Lead Stage 3 - Sales</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="control">
+                                            <label for="desc">Comments / Details</label>
+                                            <textarea class="textarea is-link" placeholder="Enter Description" name="desc"></textarea>
+                                        </div>
+                                    </div>
+                                   <div class="field">
+                                            <label for="amt" class="label">Enter Estimated / Sales Amount</label>
+                                            <div class="control has-icons-left">
+                                                <input type="number" placeholder="" class="input is-link" required name="amt" >
+                                                <span class="icon is-small is-left">
+                                                <i class="fas fa-rupee-sign"></i>
+                                                </span>
+                                            </div>
+                                     </div>
+                                       <div class="field is-grouped">
+                                            <div class="control">
+                                                <button class="button is-link" type="submit">Save</button>
+                                            </div>
+                                            <div class="control">
+                                                <button class="button is-link is-light" type="reset">Cancel</button>
+                                            </div>
+                                        </div>
+                                 </form>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+</div>
+
+{{>footer}}

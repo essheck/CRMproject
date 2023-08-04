@@ -1,0 +1,57 @@
+{{>header}}
+
+{{!-- navbar --}}
+{{>navbar}}
+{{!-- navbar end--}}
+<div class="columns is-variable is-0"> 
+    
+    {{!-- sidebar --}}
+{{>sidemenu}}
+
+    {{!-- Customer List --}}
+       <div class="column is-10-desktop is-offset-2-desktop is-9-tablet is-offset-3-tablet is-12-mobile dashboard">
+        <div class="p-3">
+            <div class="columns is-variable is-desktop">
+                <div class="column">
+                    <h1 class="title">Your Customers</h1>
+                </div>
+            </div>
+            <div class="columns is-variable is-desktop">
+                
+                    <div class="column is-three-quaters">
+                        <table class="table is-striped is-hoverable is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Stage</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each customers}}
+                            <tr>
+                                <td>{{name}}</td>
+                                <td>{{email}}</td>
+                                <td>{{phone}}</td>
+                                <td><progress class="progress is-small is-success" value="{{stage}}" max="3"></progress></td>
+                                <td>
+                                    <a href="/details/{{_id}}"><i class="fas fa-eye icon"></i></a>
+                                    <a href="/edit/{{_id}}"><i class="fas fa-edit edit icon"></i></a>
+                                    {{!-- <a href="/delete/{{_id}}"><i class="fa fa-arrow-circle-up update icon"></i></a> --}}
+                                    <a href="/delete/{{_id}}"><i class="fas fa-trash trash icon"></i></a>
+
+                                </td>
+                            </tr>                            
+                            {{/each}}
+                        </tbody>
+                        </table>
+                    </div>
+                
+            </div>
+        </div>
+       </div>  
+
+
+{{>footer}}
