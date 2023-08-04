@@ -10,6 +10,7 @@ require('dotenv').config({ path: path.resolve(__dirname, './.env') });
 require('./src/database/mongoose')
 const User = require('./src/models/user')
 const Customer = require('./src/models/customer')
+
 //sessions
 const session = require('express-session');
 const MongoStore = require('connect-mongo')
