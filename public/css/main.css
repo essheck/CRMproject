@@ -21,6 +21,9 @@ html , body {
 .icon.update{
     color: rgb(36, 151, 65);
 }
+.icon.mail {
+    color: rgb(190, 20, 20);
+}
 .large {
     font-size: larger;
 }
@@ -54,7 +57,7 @@ html , body {
 }
 
 .toggler {
-    margin-left: 0;
+    margin-left: 0; 
     cursor: pointer;
 }
 

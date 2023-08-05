@@ -79,7 +79,10 @@ router.get('/customers' , async function(req , res){
 
 router.get('/history' , async function(req , res) {
     try {
-        const userHistory = await History.find({user: req.session.user}).populate("user" , '-password').populate("customer");
+        const userHistory = await History.find({user: req.session.user})
+        .populate("user" , '-password')
+        .populate("customer");
+        
         // console.log(userHistory);
         res.render("history.hbs" , { title: "History", userHistory: userHistory ,  username: req.session.username})
     }catch(e){

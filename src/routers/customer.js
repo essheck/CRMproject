@@ -3,6 +3,8 @@ const router = new express.Router();
 const User = require('../models/user')
 const Customer =require('../models/customer')
 const History = require('../models/history')
+const {sendEmail}= require('../email/sendemail')
+
 
 router.get('/addcustomer' , async function(req , res) {
     try{
@@ -40,7 +42,7 @@ router.post('/addcustomer' , async function(req , res) {
 
 router.get("/details/:id" , async function(req , res) {
     try{
-        const customer = await Customer.findOne({_id: req.params.id}).populate("owner");
+        const customer = await Customer.findOne({_id: req.params.id}).populate("owner" , '-password');
         res.render("customerdetails.hbs" , { customer: customer , username : req.session.username})   
     }catch(e){
         throw(e)
@@ -103,6 +105,24 @@ router.post("/edit/:id" , async function(req , res) {
     }
 })
 
+router.get("/email/:id" , async function(req , res) {
+    try {
+        const customer = await Customer.findById(req.params.id).populate("owner" ,  '-password');
+        res.render("email.hbs" , {title: "Email" , customer: customer});
+    }catch(e){
+        throw(e);
+    }
+})
+
+router.post("/email/:id" , async function(req , res) {
+    try{
+        const info = await sendEmail({email: req.body.email , subject: req.body.subject , body: req.body.emailbody })
+        console.log(info);
+        res.redirect(`/details/${req.params.id}`);
+    }catch(e){
+        throw(e);
+    }
+})
 module.exports = router;
 
 

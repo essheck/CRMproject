@@ -1,0 +1,66 @@
+{{>header}}
+
+{{!-- navbar --}}
+{{>navbar}}
+{{!-- navbar end--}}
+<div class="columns is-variable is-0"> 
+    
+    {{!-- sidebar --}}
+{{>sidemenu}}
+
+    {{!-- Add customer Form --}}
+       <div class="column is-10-desktop is-offset-2-desktop is-9-tablet is-offset-3-tablet is-12-mobile dashboard">
+        <div class="p-3">
+            <div class="columns is-variable is-desktop">
+                <div class="column">
+                    <h1 class="title">Send Email</h1>
+                </div>
+            </div>
+            <div class="columns is-variable is-desktop">
+                <div class="column is-three-quarters">
+                    <form action="/email/{{customer._id}}" class="box" method="POST">
+                        
+                        <div class="field">
+                            <label for="" class="label">Customer Email</label>
+                            <div class="control has-icons-left">
+                                <input type="text" placeholder="johndoe@xyz.com" class="input" required name="email" value="{{customer.email}}">
+                                <span class="icon is-small is-left">
+                                <i class="fa fa-envelope"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="" class="label">Subject</label>
+                            <div class="control has-icons-left">
+                                <input type="text" placeholder="suubject" class="input" required name="subject">
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="field">
+                            <label for="" class="label">Email body</label>
+                            <div class="control has-icons-left">
+                                <textarea name="emailbody" id="" cols="30" rows="10" class="is-large textarea"></textarea>
+                                
+                            </div>
+                        </div>
+                        
+                        
+
+                        <div class="field is-grouped">
+                            <div class="control">
+                                <button class="button is-link" type="submit">Send</button>
+                            </div>
+                            <div class="control">
+                                <button class="button is-link is-light" type="reset">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+       </div>
+
+</div>
+
+{{>footer}}
